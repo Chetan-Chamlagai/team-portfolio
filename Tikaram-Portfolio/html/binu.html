@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Binu Upreti | Manager</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Lexend:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -19,11 +22,11 @@
 
 <a href="#home" class="logo">Binu</a>
 
-<div class="menu-toggle" id="menu-toggle">
+<button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
 <span></span>
 <span></span>
 <span></span>
-</div>
+</button>
 
 <ul class="nav-links" id="nav-links">
 
@@ -31,10 +34,11 @@
 <li><a href="#mission">Mission</a></li>
 <li><a href="#admin">Tufan</a></li>
 <li><a href="#contact">Contact</a></li>
+<li><a href="index.html#team">Team</a></li>
 
 <!-- MOBILE THEME TOGGLE -->
 <li class="mobile-theme">
-<div class="theme-toggle" id="theme-toggle">
+<div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle dark mode">
 <span class="sun"><i class="fas fa-sun"></i></span>
 <span class="moon"><i class="fas fa-moon"></i></span>
 <div class="toggle-circle"></div>
@@ -44,7 +48,7 @@
 </ul>
 
 <!-- DESKTOP THEME TOGGLE -->
-<div class="theme-toggle desktop-toggle" id="theme-toggle">
+<div class="theme-toggle desktop-toggle" role="button" tabindex="0" aria-label="Toggle dark mode">
 <span class="sun"><i class="fas fa-sun"></i></span>
 <span class="moon"><i class="fas fa-moon"></i></span>
 <div class="toggle-circle"></div>
@@ -67,7 +71,7 @@ Tufan is committed to transforming the way people travel by removing commission 
 </div>
 
 <div class="hero-image">
-<img src="../images/binu.jpeg" alt="Binu Upreti">
+<img fetchpriority="high" src="../images/binu.jpeg?v=2" alt="Binu Upreti">
 </div>
 </section>
 
@@ -110,7 +114,7 @@ Tufan is committed to transforming the way people travel by removing commission 
 Managing day-to-day activities, coordinating teams, and ensuring operational processes run efficiently. Focused on maintaining service quality and supporting the company’s growth and customer satisfaction.
 </p>
 
-<a href="https://mytufan.com/" target="_blank" class="admin-btn">Visit Website →</a>
+<a href="https://mytufan.com/" target="_blank" rel="noopener" class="admin-btn">Visit Website →</a>
 
 </div>
 
@@ -137,13 +141,13 @@ Managing day-to-day activities, coordinating teams, and ensuring operational pro
 </div>
 
 <div class="contact-item">
-<a href="https://www.facebook.com/profile.php?id=61574556690121" target="_blank" class="contact-icon">
+<a href="https://www.facebook.com/profile.php?id=61574556690121" target="_blank" rel="noopener" class="contact-icon">
 <i class="fab fa-facebook-f"></i>
 </a>
 </div>
 
 <div class="contact-item">
-<a href="https://wa.me/9779764879897" target="_blank" class="contact-icon">
+<a href="https://wa.me/9779764879897" target="_blank" rel="noopener" class="contact-icon">
 <i class="fab fa-whatsapp"></i>
 </a>
 </div>

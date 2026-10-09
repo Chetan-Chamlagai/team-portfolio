@@ -5,51 +5,69 @@ const toggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
 if (toggle && navLinks) {
-    toggle.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
+    const setMenu = open => {
+        navLinks.classList.toggle("show", open);
+        toggle.classList.toggle("open", open);
+        toggle.setAttribute("aria-expanded", open);
+    };
+
+    toggle.addEventListener("click", () => setMenu(!navLinks.classList.contains("show")));
+
+    // Close the menu after picking a link
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => setMenu(false));
     });
 }
 
 /* =====================================================
    2. DARK / LIGHT MODE TOGGLE
+   (saved theme is applied early by the inline script in <head>)
 ===================================================== */
-const themeToggles = document.querySelectorAll(".theme-toggle");
-const body = document.body;
+const root = document.documentElement;
 
-// Apply saved theme on load
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "dark") {
-    body.classList.add("dark");
-} else {
-    body.classList.remove("dark");
-}
+document.querySelectorAll(".theme-toggle").forEach(themeToggle => {
+    themeToggle.addEventListener("click", () => {
+        const isDark = root.classList.toggle("dark");
+        try {
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        } catch (e) {}
+    });
 
-// Add event listeners to both toggles
-themeToggles.forEach(toggle => {
-    toggle.addEventListener("click", () => {
-        body.classList.toggle("dark");
-
-        if (body.classList.contains("dark")) {
-            localStorage.setItem("theme", "dark");
-        } else {
-            localStorage.setItem("theme", "light");
+    themeToggle.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            themeToggle.click();
         }
     });
 });
 
 /* =====================================================
-   3. SCROLL REVEAL FOR SECTIONS
+   3. HEADER SHADOW ON SCROLL
+===================================================== */
+const header = document.querySelector("header");
+
+if (header) {
+    const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+}
+
+/* =====================================================
+   4. SCROLL REVEAL FOR SECTIONS
 ===================================================== */
 const reveals = document.querySelectorAll(".reveal");
 
-function revealOnScroll() {
-    reveals.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        if (top < window.innerHeight - 80) {
-            section.classList.add("active");
-        }
-    });
-}
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
 
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
+    reveals.forEach(section => observer.observe(section));
+} else {
+    reveals.forEach(section => section.classList.add("active"));
+}

@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tika Chamlagai | Managing Director</title>
+<meta name="description" content="Tika Chamlagai, Managing Director of Tufan Transport, building Nepal's subscription-based ride-sharing platform.">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Lexend:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -19,11 +23,11 @@
 
 <a href="#home" class="logo">Tika</a>
 
-<div class="menu-toggle" id="menu-toggle">
+<button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
 <span></span>
 <span></span>
 <span></span>
-</div>
+</button>
 
 <ul class="nav-links" id="nav-links">
 
@@ -35,7 +39,7 @@
 
 <!-- MOBILE THEME TOGGLE -->
 <li class="mobile-theme">
-<div class="theme-toggle" id="theme-toggle">
+<div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle dark mode">
 <span class="sun"><i class="fas fa-sun"></i></span>
 <span class="moon"><i class="fas fa-moon"></i></span>
 <div class="toggle-circle"></div>
@@ -45,7 +49,7 @@
 </ul>
 
 <!-- DESKTOP THEME TOGGLE -->
-<div class="theme-toggle desktop-toggle" id="theme-toggle">
+<div class="theme-toggle desktop-toggle" role="button" tabindex="0" aria-label="Toggle dark mode">
 <span class="sun"><i class="fas fa-sun"></i></span>
 <span class="moon"><i class="fas fa-moon"></i></span>
 <div class="toggle-circle"></div>
@@ -68,7 +72,7 @@ Tufan is committed to transforming the way people travel by removing commission 
 </div>
 
 <div class="hero-image">
-<img src="../../images/tika.jpeg" alt="Tikaram Chamlagai">
+<img fetchpriority="high" src="../images/tika.jpeg?v=2" alt="Tika Chamlagai">
 </div>
 </section>
 
@@ -111,7 +115,7 @@ Tufan is committed to transforming the way people travel by removing commission 
 Leading strategy, innovation, and operations to build a fair and technology-driven ride-sharing platform that prioritizes safety, efficiency, and a seamless experience for both drivers and riders.
 </p>
 
-<a href="https://mytufan.com/" target="_blank" class="admin-btn">Visit Website →</a>
+<a href="https://mytufan.com/" target="_blank" rel="noopener" class="admin-btn">Visit Website →</a>
 
 </div>
 
@@ -127,7 +131,7 @@ Leading strategy, innovation, and operations to build a fair and technology-driv
   
     <div class="team-card">
       <a href="bhuwan.html">
-        <img src="../images/bhuwan.jpeg" alt="Bhuwan Nepal">
+        <img src="../images/bhuwan.jpeg?v=2" loading="lazy" alt="Bhuwan Nepal">
         <div class="team-info">
           <h4>Bhuwan Nepal</h4>
           <p>CEO</p>
@@ -136,7 +140,7 @@ Leading strategy, innovation, and operations to build a fair and technology-driv
     </div>
     <div class="team-card">
       <a href="chetan.html">
-        <img src="../images/chetan.jpeg" alt="Chetan Chamlagain">
+        <img src="../images/chetan.jpeg" loading="lazy" alt="Chetan Chamlagain">
         <div class="team-info">
           <h4>Chetan Chamlagain</h4>
           <p>COO</p>
@@ -145,7 +149,7 @@ Leading strategy, innovation, and operations to build a fair and technology-driv
     </div>
     <div class="team-card">
       <a href="samikshya.html">
-        <img src="../images/samikshya.jpeg" alt="Samikshya Chamlagain">
+        <img src="../images/samikshya.jpeg?v=2" loading="lazy" alt="Samikshya Chamlagain">
         <div class="team-info">
           <h4>Samikshya Chamlagain</h4>
           <p>CMO</p>
@@ -154,7 +158,7 @@ Leading strategy, innovation, and operations to build a fair and technology-driv
     </div>
     <div class="team-card">
       <a href="binu.html">
-        <img src="../images/binu.jpeg" alt="Binu Upreti">
+        <img src="../images/binu.jpeg?v=2" loading="lazy" alt="Binu Upreti">
         <div class="team-info">
           <h4>Binu Upreti</h4>
           <p>Manager</p>
@@ -168,23 +172,13 @@ Leading strategy, innovation, and operations to build a fair and technology-driv
 <div class="team-grid dev-team">
   <div class="team-card">
     <a href="sandip.html">
-      <img src="../images/sandip.jpeg" alt="Sandip Chapagain">
+      <img src="../images/sandip.jpeg?v=2" loading="lazy" alt="Sandip Chapagain">
       <div class="team-info">
         <h4>Sandip Chapagain</h4>
-        <p>C. T. O.</p>
+        <p>CTO</p>
       </div>
     </a>
   </div>
-  <div class="team-card">
-    <a href="alish.html">
-      <img src="../images/alish.jpeg" alt="Alish Karki">
-      <div class="team-info">
-        <h4>Alish Karki</h4>
-        <p>C. I. O.</p>
-      </div>
-    </a>
-  </div>
-  <div class="team-card"></div>
 </div>
 </section>
 
@@ -207,13 +201,13 @@ Leading strategy, innovation, and operations to build a fair and technology-driv
 </div>
 
 <div class="contact-item">
-<a href="https://www.facebook.com/tika.chamlagai.97067" target="_blank" class="contact-icon">
+<a href="https://www.facebook.com/tika.chamlagai.97067" target="_blank" rel="noopener" class="contact-icon">
 <i class="fab fa-facebook-f"></i>
 </a>
 </div>
 
 <div class="contact-item">
-<a href="https://wa.me/9779764879895" target="_blank" class="contact-icon">
+<a href="https://wa.me/9779764879895" target="_blank" rel="noopener" class="contact-icon">
 <i class="fab fa-whatsapp"></i>
 </a>
 </div>
